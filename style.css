@@ -185,7 +185,7 @@
         
         .presenter::after {
             content: '';
-            background-image: url(/img/me.png);
+            background-image: url(./img/me.png);
             background-size: cover;
             color: #ddd;
             font-size: 50px;
@@ -196,7 +196,7 @@
         
         .presenter:hover::after {
             content: '';
-            background-image: url(/img/me.png);
+            background-image: url(./img/me.png);
             background-size: cover;
             color: #ddd;
             font-size: 50px;
