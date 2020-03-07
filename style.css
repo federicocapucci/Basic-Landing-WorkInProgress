@@ -1,3 +1,7 @@
+:root {
+    --testborder: 2px solid red;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,28 +11,40 @@
     outline: none;
     transition: all 0.1s ease;
     font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
     width: 95vw;
     min-width: 440px;
     height: auto;
-    background: linear-gradient(180deg, #ddd 0%, #aaa 50%, #ddd 100%);
+    background: #6F9FBB;
 }
 
 .page {
     width: 100%;
     max-width: 95%;
     background-color: whitesmoke;
-    box-shadow: 3px 2px 4px 6px #777;
+    box-shadow: 3px 2px 40px black, -3px 2px 40px black;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
+    animation: all 1.3s ease-in;
+    animation-delay: 0.3s;
+}
+
+@keyframes all {
+    from {
+        transform: scale(0.001)
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 nav {
-    height: 80px;
+    height: 120px;
     width: 100%;
     position: relative;
     display: flex;
@@ -38,7 +54,6 @@ nav {
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: 5;
-    background: linear-gradient(180deg, #ddd, white, white, white, white, white, white, #ddd)
 }
 
 nav div {
@@ -60,19 +75,21 @@ nav div a {
 
 nav h3 {
     position: absolute;
+    top: 10px;
     justify-self: flex-start;
     text-align: left;
     border: 1px color red;
-    margin: 10px 0 10px 150px;
+    margin: 10px 0 10px 160px;
     text-shadow: -16px 0 2px #083B66, 16px 0 2px #083B66;
     color: white;
     font-size: 60px;
     font-weight: 800;
     transition: all 0.6s ease;
+    color: #ffffff;
 }
 
 nav h3:hover {
-    text-shadow: 16px 0 2px #083B66, -16px 0 2px #083B66;
+    text-shadow: 16px 0 3px #083B66, -16px 0 3px #083B66;
     transition: all 0.6s ease;
 }
 
@@ -85,15 +102,23 @@ nav>div>a:hover {
     box-shadow: 0px 76px #ddd;
 }
 
+.logo {
+    width: 60px;
+    height: 90px;
+    position: absolute;
+    top: 10px;
+    left: 40px;
+}
+
 nav .logo img {
     position: absolute;
     top: 0.5%;
     left: 2%;
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 100%;
     justify-self: flex-start;
-    animation: logo 0.5s ease 1;
-    animation-delay: 0.5s;
+    animation: logo 0.6s ease 1;
+    animation-delay: 2.5s;
 }
 
 @keyframes logo {
@@ -170,19 +195,19 @@ nav img:hover {
 .presenter:hover {
     opacity: 1;
     transform: scale(2) translate(-25%, -25%);
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
     border-radius: 0;
 }
 
 .presenter:hover p {
     font-size: 14px;
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
     padding: 10px;
 }
 
 .presenter:hover h3 {
     font-size: 40px;
-    transition: all 0.2s ease-in;
+    transition: all 0.1s ease-in;
     padding: 10px;
 }
 
@@ -225,10 +250,9 @@ nav img:hover {
     background-image: url(./img/me.png);
     background-size: cover;
     color: #ddd;
-    font-size: 50px;
     padding: 5px;
     display: inline-block;
-    transform: translateY(-1700%) scale(6);
+    transform: translateY(-150px) scale(6);
     opacity: 1;
 }
 
@@ -447,6 +471,68 @@ nav img:hover {
     width: 100%;
 }
 
+.intro {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    animation: fade 1.3s ease-in-out;
+    z-index: -1000;
+    font-size: 5VW;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.intro p {
+    position: relative;
+    top: 30%;
+    transform: translateX(5000px);
+    animation: text-gone 1.3s ease;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 1;
+        z-index: 10000;
+        background: #071933;
+        font-size: 5VW;
+    }
+    90% {
+        opacity: 1;
+        z-index: 10000;
+        background: #071933;
+        font-size: 5VW;
+    }
+    100% {
+        opacity: 0;
+        z-index: -10000;
+        background-color: none;
+        font-size: 1px;
+    }
+}
+
+@keyframes text-gone {
+    0% {
+        opacity: 0;
+        transform: translateX(-500px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(5000px);
+        opacity: 0;
+    }
+}
+
 
 /*  */
 
@@ -477,8 +563,8 @@ nav img:hover {
         width: 99vw;
     }
     /* .presenter {
-                display: none;
-            } */
+ display: none;
+} */
     .goback {
         position: fixed;
         left: 50%;
@@ -489,6 +575,9 @@ nav img:hover {
 @media only screen and (max-width: 840px) {
     .me {
         display: block;
+    }
+    .intro {
+        display: none;
     }
     body {
         width: 99vw;
