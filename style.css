@@ -30,16 +30,16 @@ body {
     margin-left: auto;
     margin-right: auto;
     overflow: hidden;
-    animation: all 1.3s ease-in;
+    animation: all 1.2s ease-in;
     animation-delay: 0.3s;
 }
 
 @keyframes all {
     from {
-        transform: scale(0.001)
+        transform: translateX(-5000px)
     }
     to {
-        transform: scale(1);
+        transform: translateX(0px)
     }
 }
 
@@ -94,12 +94,12 @@ nav h3:hover {
 }
 
 nav>div>a:hover {
-    transition: 0.5s ease;
+    transition: 0.4s ease;
     background-color: #083B66;
     color: #ddd;
     top: -10px;
     padding-bottom: 12px;
-    box-shadow: 0px 76px #ddd;
+    box-shadow: 0px 86px #ddd;
 }
 
 .logo {
@@ -489,7 +489,7 @@ nav img:hover {
     top: 30%;
     transform: translateX(5000px);
     animation: text-gone 1.3s ease;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     color: white;
 }
 
@@ -503,7 +503,7 @@ nav img:hover {
     90% {
         opacity: 1;
         z-index: 10000;
-        background: #071933;
+        background: #6F9FBB;
         font-size: 5VW;
     }
     100% {
@@ -516,8 +516,8 @@ nav img:hover {
 
 @keyframes text-gone {
     0% {
-        opacity: 0;
-        transform: translateX(-500px);
+        opacity: 1;
+        transform: translateX(-1500px);
     }
     30% {
         opacity: 1;
@@ -573,6 +573,10 @@ nav img:hover {
 }
 
 @media only screen and (max-width: 840px) {
+    .page {
+        box-shadow: none;
+        min-width: 440px;
+    }
     .me {
         display: block;
     }
@@ -602,13 +606,13 @@ nav img:hover {
     }
     .sect1,
     .sect2 {
-        width: 99.15%;
-        left: 0;
+        width: 99.55%;
+        left: 1px;
         text-align: center;
         margin: 0;
+        padding: 0;
         left: auto;
         right: auto;
-        padding: 0;
         opacity: 1;
     }
     .sect3 {
@@ -634,5 +638,12 @@ nav img:hover {
     }
     .goback {
         display: none;
+    }
+    .logo {
+        width: 50px;
+        height: 70px;
+        top: 25px;
+        left: 0;
+        margin: 3px;
     }
 }
